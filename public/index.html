@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EquiGrade AI - Professional Evaluation Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <header>
+            <h1>EquiGrade <span>AI</span></h1>
+            <p>Acropolis Institute of Technology and Research, Indore</p>
+        </header>
+
+        <main id="app-content">
+            <!-- Input Section -->
+            <section id="input-section" class="card fade-in">
+                <form id="eval-form">
+                    <div class="form-group">
+                        <label for="scheme">Marking Scheme (Mandatory)</label>
+                        <textarea id="scheme" name="scheme" rows="5" placeholder="e.g. Q1: What is DBMS? (5 marks)&#10; - Definition → 2 marks&#10; - Features → 2 marks&#10; - Example → 1 mark" required></textarea>
+                    </div>
+
+                    <div class="upload-zones">
+                        <div class="upload-zone" id="qp-zone">
+                            <input type="file" id="qp_file" name="qp_file" accept=".pdf, .png, .jpg, .jpeg" hidden>
+                            <div class="icon">📄</div>
+                            <p>Upload Question Paper (Optional)</p>
+                            <span class="file-name" id="qp-name">PDF or Image</span>
+                        </div>
+                        
+                        <div class="upload-zone" id="as-zone">
+                            <input type="file" id="as_file" name="as_file" accept=".pdf, .png, .jpg, .jpeg" required hidden>
+                            <div class="icon">📝</div>
+                            <p>Upload Answer Sheet (Mandatory)</p>
+                            <span class="file-name" id="as-name">PDF or Image</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="glow-btn">
+                        <span>Evaluate Answer Sheet</span>
+                        <div class="loader" id="btn-loader"></div>
+                    </button>
+                    <p id="status-text"></p>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="card hidden">
+                <div class="results-header">
+                    <h2>Evaluation Results</h2>
+                    <button id="new-eval-btn" class="secondary-btn">New Evaluation</button>
+                </div>
+                
+                <div id="evaluations-container">
+                    <!-- Dynamic evaluation cards will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/public/app.js"></script>
+</body>
+</html>
